@@ -17,14 +17,15 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from home.cls import index #首页
-
+from admin import admin_url
 from root import root_url
 from home import home_url
 from api import api_url
 from logs import logs_url
 
 urlpatterns = [
-	url(r'^admin/', include(admin.site.urls)),
+	#url(r'^admin/', include(admin.site.urls)),
+	url(r'^admin/', include(admin_url)),
 	url(r'^$', index.Index.as_view()),
 	url(r'^root/', include(root_url)),
 	url(r'^home/', include(home_url)),
